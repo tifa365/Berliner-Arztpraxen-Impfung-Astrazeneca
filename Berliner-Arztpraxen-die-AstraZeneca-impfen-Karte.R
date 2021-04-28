@@ -31,7 +31,7 @@ df_astrazeneca_doctors_offices <- df_cleaned %>%
   #drop all rows which failed to produce latitute value
   drop_na(lat)
 
-#create simple leaflet map with makers
+#create simple leaflet map with location markers
 map <- leaflet() %>%
   addTiles() %>%  # Add default OpenStreetMap map tiles
   addMarkers(data = df_astrazeneca_doctors_offices,
