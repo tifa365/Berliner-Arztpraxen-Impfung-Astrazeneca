@@ -23,7 +23,7 @@ df_cleaned <- df %>%
   distinct(`Name_Arzt`, `Name der Praxis`, .keep_all = TRUE) %>%
   #create (combined) address colum for georeferencing each address           
   unite(PLZ, Bezirk, sep = " ", col = "kombiniert-plz-landkreis") %>% 
-  unite(`Straße und Hausnummer`, `kombiniert-plz-landkreis`, sep = ", ", col = "Addresse")
+  unite(`Straße und Hausnummer`, `kombiniert-plz-landkreis`, sep = ", ", col = "Adresse")
 
 #geolocate all doctor's offices
 df_astrazeneca_doctors_offices <- df_cleaned %>%
@@ -40,7 +40,7 @@ map <- leaflet() %>%
                     #name of doctor
                     label = ~`Name der Praxis`,
                     #show address on click
-                    popup = ~`Addresse`) #c(~`Name der Praxis`,~Addresse)
+                    popup = ~`Adresse`) #c(~`Name der Praxis`,~Addresse)
 # Print the map
 map 
 
